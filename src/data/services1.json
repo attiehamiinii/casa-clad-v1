@@ -1,0 +1,20 @@
+{
+  "image": "/assets/img/slid/2.jpg",
+  "services": [
+    {
+      "id": "01",
+      "title": "Comprehensive Facade Solutions",
+      "content": "We provide innovative designs, quality materials, and precise installation to create exceptional facades."
+    },
+    {
+      "id": "02",
+      "title": "Design, Supply & Installation Experts",
+      "content": "From concept to completion, we deliver seamless facade solutions tailored to your needs"
+    },
+    {
+      "id": "03",
+      "title": "Elevating Architecture with Precision",
+      "content": "Combining design expertise, premium materials, and flawless installation for stunning facades."
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "title": {
+      "first": "Design with Precision",
+      "second": "Innovative concepts tailored to your needs"
+    },
+    "content": {
+      "first": "Creating unique and functional facades that",
+      "second": "align with your vision and building requirements."
+    },
+    "image": "/assets/img/slid/n/11.png"
+  },
+  {
+    "id": 2,
+    "title": {
+      "first": "Supply with Excellence",
+      "second": "Reliable materials for lasting quality"
+    },
+    "content": {
+      "first": "Providing high-quality materials to ensure ",
+      "second": "durability and superior performance."
+    },
+    "image": "/assets/img/slid/n/12.png"
+  },
+  {
+    "id": 3,
+    "title": {
+      "first": "Installation with Expertise",
+      "second": "Expert craftsmanship for perfect results"
+    },
+    "content": {
+      "first": "Delivering precise and efficient installation",
+      "second": " for a flawless, lasting finish."
+    },
+    "image": "/assets/img/slid/n/13.png"
+  }
+]

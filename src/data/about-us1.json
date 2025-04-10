@@ -1,0 +1,29 @@
+{
+  "title": {
+    "first": "Innovative Architecture, ",
+    "second": "Seamless Installation"
+  },
+  "image": "/assets/img/exp.jpg",
+  "content": "At Casa Clad, we specialize in delivering innovative facade solutions that combine design, quality, and precision. Based in Canada, our expertise lies in designing, supplying, and installing premium ACM panels to elevate architectural aesthetics. With a commitment to excellence and client satisfaction, we transform buildings into modern works of art.",
+  "exp": {
+    "nmb": 21,
+    "since": 1999
+  },
+  "numbers": [
+    {
+      "id": 1,
+      "number": 352,
+      "name": "PROJECTS COMPLETED"
+    },
+    {
+      "id": 2,
+      "number": 567,
+      "name": "SATISFIED CLIENTS"
+    },
+    {
+      "id": 3,
+      "number": 17,
+      "name": "AWARDS WON"
+    }
+  ]
+}
