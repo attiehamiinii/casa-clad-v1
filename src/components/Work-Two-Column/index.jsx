@@ -24,48 +24,34 @@ export const WorkTwoColumn = () => {
                       All
                     </span>
                     <span data-filter=".interior">Interior</span>
-                    <span data-filter=".theaters">Theaters</span>
-                    <span data-filter=".residential">Residential</span>
+                  
+                    <span data-filter=".residential">Exterior</span>
                   </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-6 items theaters">
-              <div className="item">
-                <div className="img">
-                  <img src="/assets/img/works/2.jpg" alt="" />
-                </div>
-                <div className="cont vis">
-                  <h5>
-                    <Link href="/project-details">Modern Townhouse</Link>
-                  </h5>
-                  <span>Architecture</span>
-                  <span>Modern</span>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-6 items residential interior">
-              <div className="item">
-                <div className="img">
-                  <img src="/assets/img/works/1.jpg" alt="" />
-                </div>
-                <div className="cont vis">
-                  <h5>
-                    <Link href="/project-details">Modern Townhouse</Link>
-                  </h5>
-                  <span>Architecture</span>
-                  <span>Modern</span>
                 </div>
               </div>
             </div>
             <div className="col-lg-6 items interior">
               <div className="item">
                 <div className="img">
-                  <img src="/assets/img/works/5.jpg" alt="" />
+                  <img src="/assets/img/Design 002.jpg" alt="" />
                 </div>
                 <div className="cont vis">
                   <h5>
-                    <Link href="/project-details">Modern Townhouse</Link>
+                    Interior Design
+                  </h5>
+                  <span>Architecture</span>
+                  <span>Modern</span>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-6 items  interior">
+              <div className="item">
+                <div className="img">
+                  <img src="/assets/img/slid/Design.png" alt="" />
+                </div>
+                <div className="cont vis">
+                  <h5>
+                   Interior Design
                   </h5>
                   <span>Architecture</span>
                   <span>Modern</span>
@@ -75,25 +61,39 @@ export const WorkTwoColumn = () => {
             <div className="col-lg-6 items residential">
               <div className="item">
                 <div className="img">
-                  <img src="/assets/img/works/3.jpg" alt="" />
+                  <img src="/assets/img/slid/002.jpeg" alt="" />
                 </div>
                 <div className="cont vis">
                   <h5>
-                    <Link href="/project-details">Modern Townhouse</Link>
+                  Modern Design
                   </h5>
                   <span>Architecture</span>
                   <span>Modern</span>
                 </div>
               </div>
             </div>
-            <div className="col-lg-6 items theaters">
+            <div className="col-lg-6 items interior">
               <div className="item">
                 <div className="img">
-                  <img src="/assets/img/works/4.jpg" alt="" />
+                  <img src="/assets/img/slid/exeh.png" alt="" />
                 </div>
                 <div className="cont vis">
                   <h5>
-                    <Link href="/project-details">Modern Townhouse</Link>
+                  Modern Design
+                  </h5>
+                  <span>Architecture</span>
+                  <span>Modern</span>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-6 items residential">
+              <div className="item">
+                <div className="img">
+                  <img src="/assets/img/slid/exterior01.jpg" alt="" />
+                </div>
+                <div className="cont vis">
+                  <h5>
+                  Modern Design
                   </h5>
                   <span>Architecture</span>
                   <span>Modern</span>

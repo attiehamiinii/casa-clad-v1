@@ -1,23 +1,26 @@
 [
   {
     "id": 1,
-    "image": "/assets/img/01.jpg",
-    "icon": "icon flaticon-home-1",
-    "title": "Architecture",
-    "content": "Cras mollis turpis a ipsum ultes, nec cond imentum ipsum consequat."
+    "image": "/assets/img/slid/Design.png",
+    "icon": "/assets/img/icons/sketch.png",
+    "title": "Architectural Design",
+    "link": "/work1",
+    "content": "We offer comprehensive architectural design services, including concept development, 3D modeling, and detailed drawings."
   },
   {
     "id": 2,
-    "image": "/assets/img/02.jpg",
-    "icon": "icon flaticon-living-room",
-    "title": "Interior Design",
-    "content": "Cras mollis turpis a ipsum ultes, nec cond imentum ipsum consequat."
+    "image": "/assets/img/slid/2.jpg",
+    "icon": "/assets/img/icons/parquet.png",
+    "title": "Supply",
+    "link": "/work3",
+    "content": "We supply a wide range of cladding materials, to ensure your project is completed to the highest standards."
   },
   {
     "id": 3,
-    "image": "/assets/img/03.jpg",
-    "icon": "icon flaticon-interior-design",
-    "title": "3D Modeling",
-    "content": "Cras mollis turpis a ipsum ultes, nec cond imentum ipsum consequat."
+    "image": "/assets/img/slid/2.jpg",
+    "icon": "/assets/img/icons/maintenance.png",
+    "title": "Installation",
+    "link": "/work2",
+    "content": "We install all the materials we supply, ensuring a seamless and professional finish to your project."
   }
 ]

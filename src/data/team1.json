@@ -48,5 +48,57 @@
     "linkedin": "#",
     "username": "Matt Huk",
     "usertitle": "3D Visualization"
-  }
+  },
+  
+    {
+      "id": 6,
+      "image": "/assets/img/team/6.jpg",
+      "facebook": "#",
+      "twitter": "#",
+      "behance": "#",
+      "linkedin": "#",
+      "username": "Matt Huk",
+      "usertitle": "3D Visualization"
+    },
+    {
+      "id": 7,
+      "image": "/assets/img/team/7.jpg",
+      "facebook": "#",
+      "twitter": "#",
+      "behance": "#",
+      "linkedin": "#",
+      "username": "Matt Huk",
+      "usertitle": "3D Visualization"
+    },
+    {
+      "id": 8,
+      "image": "/assets/img/team/8.jpg",
+      "facebook": "#",
+      "twitter": "#",
+      "behance": "#",
+      "linkedin": "#",
+      "username": "Matt Huk",
+      "usertitle": "3D Visualization"
+    },
+    {
+      "id": 9,
+      "image": "/assets/img/team/9.jpg",
+      "facebook": "#",
+      "twitter": "#",
+      "behance": "#",
+      "linkedin": "#",
+      "username": "Matt Huk",
+      "usertitle": "3D Visualization"
+    },
+    {
+      "id": 10,
+      "image": "/assets/img/team/10.jpg",
+      "facebook": "#",
+      "twitter": "#",
+      "behance": "#",
+      "linkedin": "#",
+      "username": "Matt Huk",
+      "usertitle": "3D Visualization"
+    }
+  
 ]

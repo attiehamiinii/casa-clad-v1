@@ -23,12 +23,12 @@ class Team1 extends React.Component {
   };
   render() {
     return (
-      <section className="team section-padding">
+      <section className="team section-padding" id="projects" > 
         <div className="container">
           <div className="row">
             <div className="col-lg-5">
               <div className="tit">
-                <h6 className="mb-10 wow fadeInDown" data-wow-delay=".3s">
+                <h6 className="mb-15 wow fadeInDown" data-wow-delay=".3s">
                   Best Works
                 </h6>
                 <h3 className="playfont wow flipInX" data-wow-delay=".5s">
@@ -76,30 +76,15 @@ class Team1 extends React.Component {
                 {Team1Data.map((item) => (
                   <div
                     className="item wow fadeInUp"
-                    data-wow-delay=".3s"
+                    data-wow-delay=".9s"
                     key={item.id}
+                   
                   >
                     <div className="img wow imago">
-                      <img src={item.image} alt="" />
-                      <div className="social">
-                        <a href={item.facebook}>
-                          <i className="fab fa-facebook-f"></i>
-                        </a>
-                        <a href={item.twitter}>
-                          <i className="fab fa-twitter"></i>
-                        </a>
-                        <a href={item.behance}>
-                          <i className="fab fa-behance"></i>
-                        </a>
-                        <a href={item.linkedin}>
-                          <i className="fab fa-linkedin-in"></i>
-                        </a>
-                      </div>
+                      <img src={item.image} alt=""   />
+                   
                     </div>
-                    <div className="info">
-                      <h5>{item.username}</h5>
-                      <span>{item.usertitle}</span>
-                    </div>
+                   
                   </div>
                 ))}
               </Slider>

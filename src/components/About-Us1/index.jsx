@@ -3,7 +3,7 @@ import aboutUs1Data from "../../data/about-us1.json";
 
 const AboutUs1 = () => {
   return (
-    <section className="about section-padding">
+    <section id="about" className="about section-padding">
       <div className="container">
         <div className="row">
           <div className="col-lg-5">
@@ -12,14 +12,7 @@ const AboutUs1 = () => {
                 className="img bg-img wow imago"
                 style={{ backgroundImage: `url(${aboutUs1Data.image})` }}
               >
-                {/* <div className="since playfont">
-                  <span>Since</span>
-                  <span>{aboutUs1Data.exp.since}</span>
-                </div> */}
-                {/* <div className="years playfont">
-                  <h2>{aboutUs1Data.exp.nmb}</h2>
-                  <h5>Years Experience</h5>
-                </div> */}
+  
               </div>
             </div>
           </div>
@@ -31,18 +24,7 @@ const AboutUs1 = () => {
               </h2>
               <p>{aboutUs1Data.content}</p>
               <div className="numbers mt-50">
-                {/* <div className="row">
-                  {aboutUs1Data.numbers.map((item) => (
-                    <div className="col-md-4" key={item.id}>
-                      <div className="item">
-                        <h3>
-                          <span className="nbr playfont">{item.number}</span>
-                        </h3>
-                        <h6>{item.name}</h6>
-                      </div>
-                    </div>
-                  ))}
-                </div> */}
+                
               </div>
             </div>
           </div>

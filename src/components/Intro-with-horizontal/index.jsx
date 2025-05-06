@@ -4,7 +4,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Split from "../Split";
 import Link from "next/link";
 import SwiperCore, { Navigation, Pagination, Parallax } from "swiper";
-
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -78,11 +77,13 @@ const IntroWithHorizontal = () => {
               <SwiperSlide key={slide.id} className="swiper-slide">
                 <div
                   className="bg-img valign"
-                  style={{ backgroundImage: `url(${slide.image})` }}
+                  style={{ backgroundImage: `url(${slide.image})`,filter : "grayscale(1)"  ,   
+                  
+                }}
                   data-overlay-dark="6"
                 >
-                  <div className="container">
-                    <div className="row">
+                  <div className="container" > 
+                    <div className="row" >
                       <div className="col-lg-8 col-md-10">
                         <div className="caption hmone mt-100">
                           <h5 className="thin">{slide.title.first}</h5>

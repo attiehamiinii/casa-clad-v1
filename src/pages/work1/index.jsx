@@ -16,7 +16,7 @@ const Work1 = () => {
           second: "and the building speak for themeselves",
         }}
         // title = "text",
-        content="Architecture bibendum pharetra eleifend. Suspendisse vel volutpat purus, sit amet bibendum nisl. Cras mollis turpis a ipsum ultes, nec condimentum ipsum consequat. Mauris vitae consequat nibh, vitae interdum mi."
+        content="We offer comprehensive architectural design services, including concept development, 3D modeling, and detailed drawings."
       />
       <WorkTwoColumn />
     </MainLayout>

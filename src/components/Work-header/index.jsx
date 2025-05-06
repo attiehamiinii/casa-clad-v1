@@ -13,7 +13,7 @@ const WorkHeader = ({ title, content, center }) => {
               <h2>
                 {typeof title == "object" ? (
                   <>
-                    {title.first} <br /> {title.second}
+                    {title.first} <br /> <p style={{fontSize:"20px"}}>{title.second}</p>
                   </>
                 ) : (
                   title

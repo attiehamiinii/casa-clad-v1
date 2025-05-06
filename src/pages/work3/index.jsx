@@ -13,13 +13,13 @@ const Work3 = () => {
       <WorkHeader
         center
         title={{
-          first: "Architecture is a visual art,",
-          second: "and the building speak for themeselves",
+          first: "Supply",
+          second: "We supply a wide range of cladding materials, to ensure your project is completed to the highest standards.",
         }}
-        // title = "text",
-        content="Architecture bibendum pharetra eleifend. Suspendisse vel volutpat purus, sit amet bibendum nisl. Cras mollis turpis a ipsum ultes, nec condimentum ipsum consequat. Mauris vitae consequat nibh, vitae interdum mi."
+        // title = "text"
+        content="COMMING SOON"
       />
-      <WorkFourColumn />
+      {/* <WorkFourColumn /> */}
     </MainLayout>
   );
 };

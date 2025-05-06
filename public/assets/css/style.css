@@ -3655,6 +3655,7 @@ body {
 }
 .team .item.cir .img {
   position: relative;
+
 }
 .team .item.cir .img:hover:after {
   opacity: 1;
@@ -4821,22 +4822,21 @@ body {
 .cont-map {
   position: relative;
   z-index: 2;
+  background-color: #FAF9F0;
 }
 .cont-map .contact-form form {
   position: relative;
-  top: -50px;
+
   right: -50px;
   padding: 60px 30px;
-  background: #fff;
-  -webkit-box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.05);
-  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.05);
-  border: 10px solid #f7f7f7;
-  border-radius: 5px;
+
+
+
+
 }
 .cont-map .contact-form form input,
 .cont-map .contact-form form textarea {
   padding: 15px;
-  background: #f7f7f7;
   border: 0;
   width: 100%;
 }
