@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
 import AboutUs1 from "../../components/About-Us1";
-  import Services3 from "../../components/Services3";
+import Services3 from "../../components/Services3";
 import IntroWithHorizontal from "../../components/Intro-with-horizontal";
 import LightLayout from "../../layouts/light";
 import Team1 from "../../components/Team1";

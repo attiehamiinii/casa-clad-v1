@@ -21,7 +21,7 @@ const Video = () => {
        }}
         >
           <img
-          src="/assets/video/wide-video-1.JPG"
+          src="/assets/img/slid-1.jpg"
        style={{
         width:"100%",
         height:"500px",
