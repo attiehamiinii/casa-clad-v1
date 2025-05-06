@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import appData from "../../data/app.json";
-import getSiblings from "../../common/getSiblings";
+
 
 const Navbar = ({ navbarRef, logoRef, logoClass }) => {
   const [isScrolled, setIsScrolled] = useState(false);
