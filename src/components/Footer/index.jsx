@@ -44,13 +44,13 @@ const Footer = ({ classText }) => {
                 <img src="/assets/img/logo-casa.svg" alt="" />
               </div>
               <div className="social">
-                <Link href="#">
+                <Link href="https://www.youtube.com/@casa-clad" target="_blank">
                   <a>
-                    <i className="fab fa-facebook-f"></i>
+                    <i className="fab fa-youtube"></i>
                   </a>
                 </Link>
 
-                <Link href="#">
+                <Link href="http://instagram.com/casaclad/?igsh=MWtla2cxYWtmd2J5bw%3D%3D#" target="_blank">
                   <a>
                     <i className="fab fa-instagram"></i>
                   </a>
