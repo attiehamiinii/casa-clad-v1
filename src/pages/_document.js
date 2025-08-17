@@ -17,8 +17,7 @@ class MyDocument extends Document {
           <meta name="casa-clad" content="CasaClad - AI Tools & Services" />
           <meta
             name="CasaClad"
-            content="Innovative Architecture,
-Seamless Installation"
+            content="cladding installers serving Toronto & GTA. Supply, fabrication, and installation. Free estimates"
           />
           <meta name="Instalation" content="ACM Pannel" />
 

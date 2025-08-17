@@ -1,10 +1,71 @@
 import React from "react";
 import services3Data from "../../data/services3.json";
 import Link from "next/link";
-
+import { NextSeo, BreadcrumbJsonLd, FAQPageJsonLd } from "next-seo";
 const Services3 = ({ bigTitle, grid }) => {
   return (
-    <section
+    <>
+        <NextSeo
+        title="ACM Panel Installation in Toronto | CasaClad"
+        description="Certified ACM cladding installers serving Toronto & GTA. Supply, fabrication, installation, and maintenance. Request a free quote."
+        canonical="https://casaclad.ca/services/acm-panel-installation-toronto"
+        openGraph={{
+          url: "https://casaclad.ca/services/acm-panel-installation-toronto",
+          title: "ACM Panel Installation in Toronto | CasaClad",
+          description:
+            "ACM (Aluminum Composite) cladding specialists for commercial & residential projects in Toronto.",
+          images: [{ url: "https://casaclad.ca/og-acm-toronto.jpg", width: 1200, height: 630 }],
+        }}
+      />
+
+      <BreadcrumbJsonLd
+        itemListElements={[
+          { position: 1, name: "Home", item: "https://casaclad.ca/" },
+          { position: 2, name: "Services", item: "https://casaclad.ca/services" },
+          { position: 3, name: "ACM Panel Installation Toronto", item: "https://casaclad.ca/services/acm-panel-installation-toronto" },
+        ]}
+      />
+
+      {/* Service schema (JSON-LD) */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": "ACM Panel Installation",
+            "provider": {
+              "@type": "LocalBusiness",
+              "name": "CasaClad",
+              "areaServed": ["Toronto", "Thornhill", "Markham", "Vaughan", "Richmond Hill", "GTA"],
+              "url": "https://casaclad.ca"
+            },
+            "serviceType": "Aluminum Composite Panel (ACM) cladding installation",
+            "areaServed": { "@type": "AdministrativeArea", "name": "Toronto" }
+          }),
+        }}
+      />
+
+      <FAQPageJsonLd
+        mainEntity={[
+          {
+            questionName: "How long does ACM panel installation take?",
+            acceptedAnswerText:
+              "Small storefronts can be completed in 1–2 weeks; larger commercial projects vary by scope.",
+          },
+          {
+            questionName: "Do you supply and install ACM panels?",
+            acceptedAnswerText:
+              "Yes. We provide full-service supply, fabrication, and installation with warranties.",
+          },
+          {
+            questionName: "Which areas do you serve?",
+            acceptedAnswerText:
+              "Toronto, Thornhill, North York, Richmond Hill, Markham, Vaughan, and the GTA.",
+          },
+        ]}
+      />
+         <section
     id="services"
     className={`${!grid ? "services" : "services-grid"} section-padding ${
         !grid ? "bg-gray" : "pt-0"
@@ -62,7 +123,9 @@ const Services3 = ({ bigTitle, grid }) => {
         </div>
       </div>
     </section>
+    </>
   );
+ 
 };
 
 export default Services3;
