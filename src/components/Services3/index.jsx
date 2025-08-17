@@ -6,15 +6,15 @@ const Services3 = ({ bigTitle, grid }) => {
   return (
     <>
         <NextSeo
-        title="ACM Panel Installation in Toronto | CasaClad"
+        title="CasaClad | ACM Panel Installation"
         description="Certified ACM cladding installers serving Toronto & GTA. Supply, fabrication, installation, and maintenance. Request a free quote."
-        canonical="https://casaclad.ca/services/acm-panel-installation-toronto"
+        canonical="https://casaclad.ca/services"
         openGraph={{
-          url: "https://casaclad.ca/services/acm-panel-installation-toronto",
-          title: "ACM Panel Installation in Toronto | CasaClad",
+          url: "https://casaclad.ca/services",
+          title: "CasaClad | ACM Panel Installation",
           description:
             "ACM (Aluminum Composite) cladding specialists for commercial & residential projects in Toronto.",
-          images: [{ url: "https://casaclad.ca/og-acm-toronto.jpg", width: 1200, height: 630 }],
+         
         }}
       />
 
@@ -22,7 +22,7 @@ const Services3 = ({ bigTitle, grid }) => {
         itemListElements={[
           { position: 1, name: "Home", item: "https://casaclad.ca/" },
           { position: 2, name: "Services", item: "https://casaclad.ca/services" },
-          { position: 3, name: "ACM Panel Installation Toronto", item: "https://casaclad.ca/services/acm-panel-installation-toronto" },
+          { position: 3, name: "ACM Panel Installation", item: "https://casaclad.ca/services" },
         ]}
       />
 
