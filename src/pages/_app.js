@@ -1,11 +1,11 @@
-import React from "react";
+import { DefaultSeo, NextSeo } from "next-seo";
 import Script from "next/script";
 import Head from "next/head";
 import LoadingScreen from "../components/Loading-Screen/loading-screen";
 import "../styles/globals.css";
 import Cursor from "../components/Cursor";
 import ScrollToTop from "../components/scrollToTop";
-
+import SEO from "../../next-seo.config" ;
 function MyApp({ Component, pageProps }) {
   return (
     <>
@@ -13,12 +13,13 @@ function MyApp({ Component, pageProps }) {
         <title>Casa Clad</title>
         <meta
           name="viewport"
-          content="width=device-width, initial-scale=1, maximum-scale=1"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
         />
       </Head>
 
       <Cursor />
       <LoadingScreen />
+      <DefaultSeo {...SEO} />
       <Component {...pageProps} />
       <ScrollToTop />
 

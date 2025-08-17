@@ -1,73 +1,35 @@
 "use strict";
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
 (() => {
 var exports = {};
-exports.id = 91;
-exports.ids = [91];
+exports.id = "pages/api/contact";
+exports.ids = ["pages/api/contact"];
 exports.modules = {
 
-/***/ 6184:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ "resend":
+/*!*************************!*\
+  !*** external "resend" ***!
+  \*************************/
+/***/ ((module) => {
 
-// ESM COMPAT FLAG
-__webpack_require__.r(__webpack_exports__);
+module.exports = import("resend");;
 
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, {
-  "default": () => (/* binding */ handler)
-});
+/***/ }),
 
-;// CONCATENATED MODULE: external "nodemailer"
-const external_nodemailer_namespaceObject = require("nodemailer");
-var external_nodemailer_default = /*#__PURE__*/__webpack_require__.n(external_nodemailer_namespaceObject);
-;// CONCATENATED MODULE: ./src/pages/api/contact.js
+/***/ "./src/pages/api/contact.js":
+/*!**********************************!*\
+  !*** ./src/pages/api/contact.js ***!
+  \**********************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
 
-async function handler(req, res) {
-    if (req.method !== "POST") {
-        return res.status(405).json({
-            message: "Method not allowed"
-        });
-    }
-    const { name , email , message  } = req.body;
-    if (!name || !email || !message) {
-        return res.status(400).json({
-            message: "Missing fields"
-        });
-    }
-    // Step 1: Create transporter
-    const transporter = external_nodemailer_default().createTransport({
-        host: "smtpout.secureserver.net",
-        port: 465,
-        secure: true,
-        auth: {
-            user: "info@casaclad.ca",
-            pass: "Pcls@2024"
-        }
-    });
-    try {
-        // Step 2: Send the email
-        await transporter.sendMail({
-            from: `"${name}" <${email}>`,
-            to: "info@casaclad.ca",
-            subject: "New Contact Form Submission",
-            text: message,
-            html: `
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Message:</strong></p>
-        <p>${message}</p>
-      `
-        });
-        return res.status(200).json({
-            success: true
-        });
-    } catch (err) {
-        console.error("Email send error:", err);
-        return res.status(500).json({
-            message: "Error sending email"
-        });
-    }
-};
-
+eval("__webpack_require__.a(module, async (__webpack_handle_async_dependencies__) => {\n__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ handler)\n/* harmony export */ });\n/* harmony import */ var resend__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! resend */ \"resend\");\nvar __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([resend__WEBPACK_IMPORTED_MODULE_0__]);\nresend__WEBPACK_IMPORTED_MODULE_0__ = (__webpack_async_dependencies__.then ? await __webpack_async_dependencies__ : __webpack_async_dependencies__)[0];\n// /src/pages/api/contact.js\n\nconst resend = new resend__WEBPACK_IMPORTED_MODULE_0__.Resend(process.env.RESEND_API_KEY);\n// Basic sanitization\nconst sanitize = (s)=>String(s || \"\").replace(/<[^>]*>?/gm, \"\").trim()\n;\nasync function handler(req, res) {\n    if (req.method !== \"POST\") return res.status(405).json({\n        message: \"Method not allowed\"\n    });\n    try {\n        const { name , email , message , website =\"\" , startedAt  } = req.body || {\n        };\n        // Honeypot anti-bot: \"website\" must be empty\n        if (website) return res.status(200).json({\n            ok: true\n        }); // silently ignore spam\n        // Time-on-page check (optional anti-bot)\n        if (startedAt && Date.now() - Number(startedAt) < 2000) {\n            return res.status(429).json({\n                message: \"Too fast, try again.\"\n            });\n        }\n        // Validate\n        const _name = sanitize(name);\n        const _email = sanitize(email);\n        const _message = sanitize(message);\n        if (!_name || !_email || !_message) {\n            return res.status(400).json({\n                message: \"Please fill all fields.\"\n            });\n        }\n        if (!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(_email)) {\n            return res.status(400).json({\n                message: \"Invalid email.\"\n            });\n        }\n        // Build email\n        const subject = `New contact form message from ${_name}`;\n        const html = `\n      <div style=\"font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial\">\n        <h2>CasaClad Contact Form</h2>\n        <p><b>Name:</b> ${_name}</p>\n        <p><b>Email:</b> ${_email}</p>\n        <p><b>Message:</b></p>\n        <pre style=\"white-space:pre-wrap;line-height:1.5\">${_message}</pre>\n      </div>\n    `;\n        const text = `CasaClad Contact Form\nName: ${_name}\nEmail: ${_email}\n\nMessage:\n${_message}\n`;\n        // IMPORTANT:\n        // After you verify your domain in Resend, you can send FROM info@casaclad.ca.\n        // Until then, use your @resend.dev trial sender or a verified sender.\n        const result = await resend.emails.send({\n            from: \"CasaClad <info@casaclad.ca>\",\n            to: [\n                \"info@casaclad.ca\"\n            ],\n            reply_to: _email,\n            subject,\n            html,\n            text\n        });\n        if (result.error) {\n            console.error(result.error);\n            return res.status(500).json({\n                message: \"Email failed. Please try again later.\"\n            });\n        }\n        return res.status(200).json({\n            ok: true,\n            message: \"Message sent.\"\n        });\n    } catch (err) {\n        console.error(\"Contact API error:\", err);\n        return res.status(500).json({\n            message: \"Server error.\"\n        });\n    }\n};\n\n});//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,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QUNDLE9BQU8sRUFBRSxDQUF1QztZQUFDLENBQUM7UUFDbEYsQ0FBQztRQUVELE1BQU0sQ0FBQ0o7WUFBdUJVLEVBQUUsRUFBRSxJQUFJO1lBQUVOO1FBQXlCLENBQUM7SUFDcEUsQ0FBQyxDQUFDLEtBQUssRUFBRXlCLEdBQUcsRUFBRSxDQUFDO1FBQ2JELE9BQU8sQ0FBQ0Q7UUFDUixNQUFNLENBQUMzQjs7UUFBZ0QsQ0FBQztJQUMxRCxDQUFDO0FBQ0gsQ0FBQyIsInNvdXJjZXMiOlsid2VicGFjazovL2FjYXNhLWNsYWQvLi9zcmMvcGFnZXMvYXBpL2NvbnRhY3QuanM/YmNiNyJdLCJzb3VyY2VzQ29udGVudCI6WyIvLyAvc3JjL3BhZ2VzL2FwaS9jb250YWN0LmpzXHJcbmltcG9ydCB7IFJlc2VuZCB9IGZyb20gXCJyZXNlbmRcIjtcclxuXHJcbmNvbnN0IHJlc2VuZCA9IG5ldyBSZXNlbmQocHJvY2Vzcy5lbnYuUkVTRU5EX0FQSV9LRVkpO1xyXG5cclxuLy8gQmFzaWMgc2FuaXRpemF0aW9uXHJcbmNvbnN0IHNhbml0aXplID0gKHMpID0+XHJcbiAgU3RyaW5nKHMgfHwgXCJcIilcclxuICAgIC5yZXBsYWNlKC88W14+XSo+Py9nbSwgXCJcIilcclxuICAgIC50cmltKCk7XHJcblxyXG5leHBvcnQgZGVmYXVsdCBhc3luYyBmdW5jdGlvbiBoYW5kbGVyKHJlcSwgcmVzKSB7XHJcbiAgaWYgKHJlcS5tZXRob2QgIT09IFwiUE9TVFwiKSByZXR1cm4gcmVzLnN0YXR1cyg0MDUpLmpzb24oeyBtZXNzYWdlOiBcIk1ldGhvZCBub3QgYWxsb3dlZFwiIH0pO1xyXG5cclxuICB0cnkge1xyXG4gICAgY29uc3QgeyBuYW1lLCBlbWFpbCwgbWVzc2FnZSwgd2Vic2l0ZSA9IFwiXCIsIHN0YXJ0ZWRBdCB9ID0gcmVxLmJvZHkgfHwge307XHJcblxyXG4gICAgLy8gSG9uZXlwb3QgYW50aS1ib3Q6IFwid2Vic2l0ZVwiIG11c3QgYmUgZW1wdHlcclxuICAgIGlmICh3ZWJzaXRlKSByZXR1cm4gcmVzLnN0YXR1cygyMDApLmpzb24oeyBvazogdHJ1ZSB9KTsgLy8gc2lsZW50bHkgaWdub3JlIHNwYW1cclxuXHJcbiAgICAvLyBUaW1lLW9uLXBhZ2UgY2hlY2sgKG9wdGlvbmFsIGFudGktYm90KVxyXG4gICAgaWYgKHN0YXJ0ZWRBdCAmJiBEYXRlLm5vdygpIC0gTnVtYmVyKHN0YXJ0ZWRBdCkgPCAyMDAwKSB7XHJcbiAgICAgIHJldHVybiByZXMuc3RhdHVzKDQyOSkuanNvbih7IG1lc3NhZ2U6IFwiVG9vIGZhc3QsIHRyeSBhZ2Fpbi5cIiB9KTtcclxuICAgIH1cclxuXHJcbiAgICAvLyBWYWxpZGF0ZVxyXG4gICAgY29uc3QgX25hbWUgPSBzYW5pdGl6ZShuYW1lKTtcclxuICAgIGNvbnN0IF9lbWFpbCA9IHNhbml0aXplKGVtYWlsKTtcclxuICAgIGNvbnN0IF9tZXNzYWdlID0gc2FuaXRpemUobWVzc2FnZSk7XHJcblxyXG4gICAgaWYgKCFfbmFtZSB8fCAhX2VtYWlsIHx8ICFfbWVzc2FnZSkge1xyXG4gICAgICByZXR1cm4gcmVzLnN0YXR1cyg0MDApLmpzb24oeyBtZXNzYWdlOiBcIlBsZWFzZSBmaWxsIGFsbCBmaWVsZHMuXCIgfSk7XHJcbiAgICB9XHJcbiAgICBpZiAoIS9eW15cXHNAXStAW15cXHNAXStcXC5bXlxcc0BdKyQvLnRlc3QoX2VtYWlsKSkge1xyXG4gICAgICByZXR1cm4gcmVzLnN0YXR1cyg0MDApLmpzb24oeyBtZXNzYWdlOiBcIkludmFsaWQgZW1haWwuXCIgfSk7XHJcbiAgICB9XHJcblxyXG4gICAgLy8gQnVpbGQgZW1haWxcclxuICAgIGNvbnN0IHN1YmplY3QgPSBgTmV3IGNvbnRhY3QgZm9ybSBtZXNzYWdlIGZyb20gJHtfbmFtZX1gO1xyXG4gICAgY29uc3QgaHRtbCA9IGBcclxuICAgICAgPGRpdiBzdHlsZT1cImZvbnQtZmFtaWx5OiBzeXN0ZW0tdWksIC1hcHBsZS1zeXN0ZW0sIFNlZ29lIFVJLCBSb2JvdG8sIEFyaWFsXCI+XHJcbiAgICAgICAgPGgyPkNhc2FDbGFkIENvbnRhY3QgRm9ybTwvaDI+XHJcbiAgICAgICAgPHA+PGI+TmFtZTo8L2I+ICR7X25hbWV9PC9wPlxyXG4gICAgICAgIDxwPjxiPkVtYWlsOjwvYj4gJHtfZW1haWx9PC9wPlxyXG4gICAgICAgIDxwPjxiPk1lc3NhZ2U6PC9iPjwvcD5cclxuICAgICAgICA8cHJlIHN0eWxlPVwid2hpdGUtc3BhY2U6cHJlLXdyYXA7bGluZS1oZWlnaHQ6MS41XCI+JHtfbWVzc2FnZX08L3ByZT5cclxuICAgICAgPC9kaXY+XHJcbiAgICBgO1xyXG4gICAgY29uc3QgdGV4dCA9IGBDYXNhQ2xhZCBDb250YWN0IEZvcm1cclxuTmFtZTogJHtfbmFtZX1cclxuRW1haWw6ICR7X2VtYWlsfVxyXG5cclxuTWVzc2FnZTpcclxuJHtfbWVzc2FnZX1cclxuYDtcclxuXHJcbiAgICAvLyBJTVBPUlRBTlQ6XHJcbiAgICAvLyBBZnRlciB5b3UgdmVyaWZ5IHlvdXIgZG9tYWluIGluIFJlc2VuZCwgeW91IGNhbiBzZW5kIEZST00gaW5mb0BjYXNhY2xhZC5jYS5cclxuICAgIC8vIFVudGlsIHRoZW4sIHVzZSB5b3VyIEByZXNlbmQuZGV2IHRyaWFsIHNlbmRlciBvciBhIHZlcmlmaWVkIHNlbmRlci5cclxuICAgIGNvbnN0IHJlc3VsdCA9IGF3YWl0IHJlc2VuZC5lbWFpbHMuc2VuZCh7XHJcbiAgICAgIGZyb206IFwiQ2FzYUNsYWQgPGluZm9AY2FzYWNsYWQuY2E+XCIsIC8vIHVzZSB5b3VyIHZlcmlmaWVkIHNlbmRlclxyXG4gICAgICB0bzogW1wiaW5mb0BjYXNhY2xhZC5jYVwiXSxcclxuICAgICAgcmVwbHlfdG86IF9lbWFpbCwgICAgICAgICAgICAgICAgICAgICAvLyBzbyB5b3UgY2FuIHJlcGx5IGRpcmVjdGx5IHRvIHRoZSBjdXN0b21lclxyXG4gICAgICBzdWJqZWN0LFxyXG4gICAgICBodG1sLFxyXG4gICAgICB0ZXh0LFxyXG4gICAgfSk7XHJcblxyXG4gICAgaWYgKHJlc3VsdC5lcnJvcikge1xyXG4gICAgICBjb25zb2xlLmVycm9yKHJlc3VsdC5lcnJvcik7XHJcbiAgICAgIHJldHVybiByZXMuc3RhdHVzKDUwMCkuanNvbih7IG1lc3NhZ2U6IFwiRW1haWwgZmFpbGVkLiBQbGVhc2UgdHJ5IGFnYWluIGxhdGVyLlwiIH0pO1xyXG4gICAgfVxyXG5cclxuICAgIHJldHVybiByZXMuc3RhdHVzKDIwMCkuanNvbih7IG9rOiB0cnVlLCBtZXNzYWdlOiBcIk1lc3NhZ2Ugc2VudC5cIiB9KTtcclxuICB9IGNhdGNoIChlcnIpIHtcclxuICAgIGNvbnNvbGUuZXJyb3IoXCJDb250YWN0IEFQSSBlcnJvcjpcIiwgZXJyKTtcclxuICAgIHJldHVybiByZXMuc3RhdHVzKDUwMCkuanNvbih7IG1lc3NhZ2U6IFwiU2VydmVyIGVycm9yLlwiIH0pO1xyXG4gIH1cclxufVxyXG4iXSwibmFtZXMiOlsiUmVzZW5kIiwicmVzZW5kIiwicHJvY2VzcyIsImVudiIsIlJFU0VORF9BUElfS0VZIiwic2FuaXRpemUiLCJzIiwiU3RyaW5nIiwicmVwbGFjZSIsInRyaW0iLCJoYW5kbGVyIiwicmVxIiwicmVzIiwibWV0aG9kIiwic3RhdHVzIiwianNvbiIsIm1lc3NhZ2UiLCJuYW1lIiwiZW1haWwiLCJ3ZWJzaXRlIiwic3RhcnRlZEF0IiwiYm9keSIsIm9rIiwiRGF0ZSIsIm5vdyIsIk51bWJlciIsIl9uYW1lIiwiX2VtYWlsIiwiX21lc3NhZ2UiLCJ0ZXN0Iiwic3ViamVjdCIsImh0bWwiLCJ0ZXh0IiwicmVzdWx0IiwiZW1haWxzIiwic2VuZCIsImZyb20iLCJ0byIsInJlcGx5X3RvIiwiZXJyb3IiLCJjb25zb2xlIiwiZXJyIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./src/pages/api/contact.js\n");
 
 /***/ })
 
@@ -78,7 +40,7 @@ async function handler(req, res) {
 var __webpack_require__ = require("../../webpack-api-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = (__webpack_exec__(6184));
+var __webpack_exports__ = (__webpack_exec__("./src/pages/api/contact.js"));
 module.exports = __webpack_exports__;
 
 })();

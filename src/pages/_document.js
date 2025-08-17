@@ -14,15 +14,13 @@ class MyDocument extends Document {
         <Head>
           <meta charSet="utf-8" />
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+          <meta name="casa-clad" content="CasaClad - AI Tools & Services" />
           <meta
-            name="keywords"
-            content="React Nextjs Template Archo onepage themeforest"
+            name="CasaClad"
+            content="Innovative Architecture,
+Seamless Installation"
           />
-          <meta
-            name="description"
-            content="Archo - Onepage Multi-Purpose React nextjs Template"
-          />
-          <meta name="author" content="" />
+          <meta name="Instalation" content="ACM Pannel" />
 
           <link rel="shortcut icon" href="./favicon.ico" />
 
